@@ -1,5 +1,15 @@
 import { Button } from "./button";
 import {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+} from "./form";
+import {
   Sheet,
   SheetPortal,
   SheetOverlay,
@@ -21,6 +31,7 @@ import {
   CardContent,
 } from "./card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
+import { Textarea } from "./textarea";
 import {
   Select,
   SelectGroup,
@@ -34,6 +45,15 @@ import {
   SelectScrollDownButton,
 } from "./select";
 export {
+  Textarea,
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
   Tabs,
   TabsList,
   TabsTrigger,
