@@ -24,7 +24,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import calculatorSchema, { calculatorInitialValues } from "./schema";

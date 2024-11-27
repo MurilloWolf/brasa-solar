@@ -4,7 +4,13 @@ import Link from "next/link";
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui";
-import { Calculator, Footer, Header } from "@/components/system";
+import {
+  Calculator,
+  ContactButton,
+  ContactForm,
+  Footer,
+  Header,
+} from "@/components/system";
 import { Zap } from "lucide-react";
 
 export default function Home() {
@@ -25,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-gray-500">
+    <div className="bg-gray-500 ">
       <Header />
 
       <section
@@ -54,14 +60,15 @@ export default function Home() {
           <p className="text-glow mt-4 text-xl sm:text-lg text-gray-200 ">
             De um passo em direção à economia e sustentabilidade.
           </p>
-          <Button className="text-xl mt-6 bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 ">
-            Saiba Mais <Zap />
-          </Button>
+          <Link href="#nossos-servicos">
+            <Button className="text-xl mt-6 bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 ">
+              Saiba Mais <Zap />
+            </Button>
+          </Link>
         </div>
         <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
       </section>
 
-      {/* About Section */}
       <section id="calculator" className="py-16 bg-gray-50 px-6">
         <div className="container mx-auto ">
           <Calculator />
@@ -83,7 +90,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 bg-gray-100">
+      <section id="nossos-servicos" className="py-16 bg-gray-100">
         <div className="container mx-auto text-center">
           <h3 className="text-3xl sm:text-2xl font-bold text-gray-900">
             Nossos Serviços
@@ -121,22 +128,9 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-white">
-        <div className="container mx-auto text-center">
-          <h3 className="text-3xl sm:text-2xl font-bold text-gray-900">
-            Fale Conosco
-          </h3>
-          <p className="mt-4 text-lg text-gray-700">
-            Está pronto para fazer a transição para a energia solar? Entre em
-            contato conosco para um orçamento personalizado!
-          </p>
-          <div className="mt-8 flex justify-center">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg">
-              Entre em Contato
-            </Button>
-          </div>
-        </div>
-      </section>
+
+      <ContactForm />
+      <ContactButton />
       <Footer />
     </div>
   );
