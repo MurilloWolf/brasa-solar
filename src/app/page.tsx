@@ -69,7 +69,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
       </section>
 
-      <section id="calculator" className="py-16 bg-gray-50 px-6">
+      <section id="calculadora" className="py-16 bg-gray-50 px-6">
         <div className="container mx-auto ">
           <Calculator />
         </div>

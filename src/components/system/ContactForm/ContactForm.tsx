@@ -32,7 +32,7 @@ export default function ContactForm() {
   });
 
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="fale-conosco" className="py-16 bg-white">
       <div className="container mx-auto text-center">
         <h3 className="text-3xl sm:text-2xl font-bold text-gray-900">
           Precisa de ajuda especializada?{" "}

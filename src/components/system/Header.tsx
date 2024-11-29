@@ -8,10 +8,13 @@ import {
   SheetTitle,
   SheetDescription,
 } from "../ui";
+import { useState } from "react";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   const links = [
-    { href: "#servicos", text: "Serviços" },
+    { href: "#nossos-servicos", text: "Serviços" },
     { href: "#calculadora", text: "Calculadora" },
     { href: "#fale-conosco", text: "Fale conosco" },
   ];
@@ -32,7 +35,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <Sheet>
+          <Sheet open={open} onOpenChange={(value) => setOpen(value)}>
             <SheetTrigger className="flex sm:hidden">
               <Menu />
             </SheetTrigger>
@@ -42,8 +45,10 @@ export default function Header() {
                 <SheetDescription className="flex flex-col min-h-52 h-full gap-8 justify-center">
                   {links.map((link) => (
                     <Link
-                      key={link.text}
+                      id={link.text}
+                      key={link.href}
                       href={link.href}
+                      onClick={() => setOpen(false)}
                       className="text-center group-hover hover:text-orange-600 text-gray-700 font-bold text-lg "
                     >
                       <p>
