@@ -32,8 +32,11 @@ import { calculatePanelsByBill, calculatePanelsByConsumption } from "./utils";
 import { useRef, useState } from "react";
 import { InfoIcon } from "lucide-react";
 import ResultCard from "./components/ResultCard";
+import useLastCalc from "./context/useLastCalc";
 
 export default function Calculator() {
+  const { saveLastCalc } = useLastCalc();
+
   const [calcSelected, setCalcSelected] = useState("bill");
   const [panelsRequiredBill, setPanelsRequiredBill] = useState(0);
   const [panelsRequiredConsumption, setPanelsRequiredConsumption] = useState(0);
@@ -71,9 +74,11 @@ export default function Calculator() {
     });
   };
 
+  const isUsingConsumption = () => calcSelected === "consumption";
+
   const handleCalculatePanels = () => {
     const fieldToValidate = [
-      calcSelected === "consumption" ? "consumptionKWh" : "billValue",
+      isUsingConsumption() ? "consumptionKWh" : "billValue",
       "sunHoursPerDay",
     ];
 
@@ -85,24 +90,31 @@ export default function Calculator() {
     if (hasError) return;
 
     const values = zform.getValues();
-    const panelsRequired =
-      calcSelected === "consumption"
-        ? calculatePanelsByConsumption({
-            consumptionKWh: values.consumptionKWh,
-            panelPowerW: values.panelPowerW,
-            sunHoursPerDay: values.sunHoursPerDay,
-            efficiency: values.efficiency,
-          })
-        : calculatePanelsByBill({
-            billValue: values.billValue,
-            panelPowerW: values.panelPowerW,
-            sunHoursPerDay: values.sunHoursPerDay,
-            efficiency: values.efficiency,
-            tariffPerKWh: values.tariffPerKWh,
-            flagRate: values.flagRate as "green" | "yellow" | "red" | "red2",
-          });
+    const panelsRequired = isUsingConsumption()
+      ? calculatePanelsByConsumption({
+          consumptionKWh: values.consumptionKWh,
+          panelPowerW: values.panelPowerW,
+          sunHoursPerDay: values.sunHoursPerDay,
+          efficiency: values.efficiency,
+        })
+      : calculatePanelsByBill({
+          billValue: values.billValue,
+          panelPowerW: values.panelPowerW,
+          sunHoursPerDay: values.sunHoursPerDay,
+          efficiency: values.efficiency,
+          tariffPerKWh: values.tariffPerKWh,
+          flagRate: values.flagRate as "green" | "yellow" | "red" | "red2",
+        });
 
-    if (calcSelected === "consumption") {
+    saveLastCalc({
+      lastOperation: calcSelected,
+      value: isUsingConsumption() ? values.consumptionKWh : values.billValue,
+      panelsTotal: isUsingConsumption()
+        ? panelsRequiredConsumption
+        : panelsRequiredBill,
+    });
+
+    if (isUsingConsumption()) {
       setPanelsRequiredConsumption(panelsRequired);
       setTimeout(() => scrollToTarget(resultConsumptionRef), 200);
       return;
