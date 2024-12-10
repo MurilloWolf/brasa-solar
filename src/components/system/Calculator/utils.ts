@@ -29,7 +29,6 @@ export function calculatePanelsByConsumption(
   const daysInMonth = 30;
   const monthlyGenerationPerPanel =
     (panelPowerW * sunHoursPerDay * efficiency * daysInMonth) / 1000; // kWh por placa/mês
-  // console.log(monthlyGenerationPerPanel);
   const panelsRequired = Math.ceil(consumptionKWh / monthlyGenerationPerPanel);
   return panelsRequired;
 }

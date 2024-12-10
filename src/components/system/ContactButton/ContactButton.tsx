@@ -47,7 +47,6 @@ export default function ContactButton() {
 
   const handleRedirectWhatsApp = () => {
     const message = getWhatsAppMessage();
-    console.log(message);
     window.open(
       `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
       "_blank"
