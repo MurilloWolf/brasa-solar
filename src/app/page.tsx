@@ -46,15 +46,19 @@ export default function Home() {
   const content = [
     {
       url: "https://energyefficiency.ie/wp-content/uploads/2023/09/Solar-Panels-Maintenance.jpg",
-      text: "Nossas instalações",
+      text: "img1",
     },
     {
       url: "https://coldwellsolar.com/wp-content/uploads/2021/10/designing-commercial-solar-installation.jpg",
-      text: "Nossas instalações",
+      text: "img2",
     },
     {
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe1Pn8r2z9U0NlJ-iM-obp1pncTjhho2WPeQ&s",
-      text: "Nossas instalações",
+      url: "https://revistacenarium.com.br/wp-content/uploads/2022/07/whatsapp-image-2022-07-25-at-085410.jpeg",
+      text: "img3",
+    },
+    {
+      url: "https://ledclass.com.br/wp-content/uploads/2023/04/Painei-solar.jpg",
+      text: "img4",
     },
   ];
 
@@ -102,7 +106,7 @@ export default function Home() {
             <Calculator />
           </div>
         </section>
-        <section id="about" className="py-16 bg-gray-100 px-6">
+        <section id="about" className="py-16 bg-gray-100 px-4 sm:px-6">
           <div className="container mx-auto text-center">
             <h3 className="text-3xl sm:text-2xl sm:text-left lg:text-5xl font-bold text-gray-900">
               Quem Somos
@@ -115,7 +119,7 @@ export default function Home() {
               eficiente para sua casa ou negócio.
             </p>
           </div>
-          <div className="w-full flex justify-center items-center px-12 py-12">
+          <div className="w-full flex justify-center items-center py-12 sm:px-12 sm:py-12">
             <Carousel
               plugins={[
                 Autoplay({
@@ -128,20 +132,20 @@ export default function Home() {
                 {content.map((item) => (
                   <CarouselItem
                     key={item.text}
-                    className="pl-1 md:basis-2/3 lg:basis-2/3"
+                    className="pl-1 basis-full md:basis-2/3 lg:basis-2/3 xl:basis-2/4"
                   >
                     <Image
                       src={item.url}
                       width={500}
                       height={600}
                       alt="carousel"
-                      className="md:w-[400px] lg:w-full max-w-lg rounded-lg shadow-md"
+                      className="w-full h-full  md:w-[400px] lg:w-full max-w-lg rounded-lg shadow-md"
                     />
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
             </Carousel>
           </div>
         </section>
