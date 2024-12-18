@@ -30,9 +30,11 @@ import { useForm } from "react-hook-form";
 import calculatorSchema, { calculatorInitialValues } from "./schema";
 import { calculatePanelsByBill, calculatePanelsByConsumption } from "./utils";
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { InfoIcon } from "lucide-react";
 import ResultCard from "./components/ResultCard";
 import useLastCalc from "./context/useLastCalc";
+import mockupMen from "@/assets/images/mockupMen.png";
 
 export default function Calculator() {
   const { saveLastCalc } = useLastCalc();
@@ -126,8 +128,8 @@ export default function Calculator() {
 
   return (
     <div>
-      <div>
-        <Card>
+      <div className="lg:flex flex-row-reverse justify-evenly">
+        <Card className="lg:w-2/4">
           <CardHeader>
             <CardTitle>Calculadora de placas</CardTitle>
             <CardDescription>
@@ -290,6 +292,13 @@ export default function Calculator() {
             Esse cálculo não substitui um orçamento especializado.{" "}
           </CardFooter>
         </Card>
+        <Image
+          className="hidden lg:block"
+          src={mockupMen}
+          alt=""
+          width={400}
+          height={400}
+        />
       </div>
     </div>
   );

@@ -4,8 +4,19 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Zap } from "lucide-react";
 
-import { Button } from "@/components/ui";
 import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui";
+import {
+  AboutUs,
   Calculator,
   ContactButton,
   ContactForm,
@@ -13,6 +24,7 @@ import {
   Header,
 } from "@/components/system";
 import CalculatorProvider from "@/components/system/Calculator/context/CalculatorContext";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Home() {
   const [countEffect, setCountEffect] = useState(0);
@@ -31,6 +43,21 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
+  const content = [
+    {
+      url: "https://energyefficiency.ie/wp-content/uploads/2023/09/Solar-Panels-Maintenance.jpg",
+      text: "Nossas instalações",
+    },
+    {
+      url: "https://coldwellsolar.com/wp-content/uploads/2021/10/designing-commercial-solar-installation.jpg",
+      text: "Nossas instalações",
+    },
+    {
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe1Pn8r2z9U0NlJ-iM-obp1pncTjhho2WPeQ&s",
+      text: "Nossas instalações",
+    },
+  ];
+
   return (
     <CalculatorProvider>
       <div className="bg-gray-500 ">
@@ -44,7 +71,7 @@ export default function Home() {
         >
           <div className="relative z-10 container mx-auto text-center py-16 text-gray-800 px-4 sm:px-0">
             <div className="flex gap-2 ">
-              <h2 className="font-[verdana] text-center flex-1 text-4xl sm:text-3xl font-bold text-white">
+              <h2 className="font-[verdana] text-center flex-1 text-4xl sm:text-5xl sm:px-4 font-bold text-white">
                 Reduza sua conta de luz em até{" "}
               </h2>
             </div>
@@ -58,7 +85,7 @@ export default function Home() {
                 {countEffect}%
               </span>
             </p>
-            <p className="text-glow mt-4 text-xl sm:text-lg text-gray-200 ">
+            <p className="text-glow mt-4 text-xl sm:text-2xl text-gray-200 ">
               De um passo em direção à economia e sustentabilidade.
             </p>
             <Link href="#nossos-servicos">
@@ -75,9 +102,9 @@ export default function Home() {
             <Calculator />
           </div>
         </section>
-        <section id="about" className="py-16 bg-white px-6">
+        <section id="about" className="py-16 bg-gray-100 px-6">
           <div className="container mx-auto text-center">
-            <h3 className="text-3xl sm:text-2xl font-bold text-gray-900">
+            <h3 className="text-3xl sm:text-2xl sm:text-left lg:text-5xl font-bold text-gray-900">
               Quem Somos
             </h3>
             <p className="mt-4 text-lg text-gray-700 max-w-4xl mx-auto">
@@ -88,46 +115,40 @@ export default function Home() {
               eficiente para sua casa ou negócio.
             </p>
           </div>
-        </section>
-
-        {/* Services Section */}
-        <section id="nossos-servicos" className="py-16 bg-gray-100">
-          <div className="container mx-auto text-center">
-            <h3 className="text-3xl sm:text-2xl font-bold text-gray-900">
-              Nossos Serviços
-            </h3>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-orange-600">
-                  Instalação de Painéis Solares
-                </h4>
-                <p className="mt-4 text-gray-700">
-                  Instalamos sistemas solares personalizados para atender às
-                  suas necessidades de energia.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-orange-600">
-                  Manutenção e Suporte
-                </h4>
-                <p className="mt-4 text-gray-700">
-                  Garantimos que seu sistema solar continue operando de forma
-                  eficiente ao longo dos anos.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h4 className="text-xl font-semibold text-orange-600">
-                  Consultoria Energética
-                </h4>
-                <p className="mt-4 text-gray-700">
-                  Oferecemos consultoria para ajudá-lo a maximizar a eficiência
-                  de seus sistemas solares.
-                </p>
-              </div>
-            </div>
+          <div className="w-full flex justify-center items-center px-12 py-12">
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 3000,
+                }),
+              ]}
+              className="w-full "
+            >
+              <CarouselContent className="-ml-2">
+                {content.map((item) => (
+                  <CarouselItem
+                    key={item.text}
+                    className="pl-1 md:basis-2/3 lg:basis-2/3"
+                  >
+                    <Image
+                      src={item.url}
+                      width={500}
+                      height={600}
+                      alt="carousel"
+                      className="md:w-[400px] lg:w-full max-w-lg rounded-lg shadow-md"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </section>
 
+        {/* Services Section */}
+
+        <AboutUs />
         {/* Contact Section */}
 
         <ContactForm />

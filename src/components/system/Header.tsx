@@ -29,7 +29,7 @@ export default function Header() {
           <ul className="hidden sm:flex space-x-6">
             {links.map((link) => (
               <li key={link.text}>
-                <Link href={link.href} className="hover:text-yellow-300">
+                <Link href={link.href} className="hover:font-semibold">
                   {link.text}
                 </Link>
               </li>
