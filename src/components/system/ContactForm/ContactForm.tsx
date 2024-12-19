@@ -36,10 +36,10 @@ export default function ContactForm() {
   return (
     <section
       id="fale-conosco"
-      className="py-16  lg:pb-4 "
+      className="py-16  lg:pb-4 bg-no-repeat bg-cover "
       style={{
         backgroundImage:
-          "url('https://img.freepik.com/vetores-premium/fundo-branco-tecnologia_23-2148399724.jpg')",
+          "url('https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/01/19366-e1656150318511.jpg?resize=150150&ssl=1')",
       }}
     >
       <div className="container mx-auto text-center">
@@ -123,6 +123,8 @@ export default function ContactForm() {
                       <FormLabel>Mensagem*</FormLabel>
                       <FormControl>
                         <Textarea
+                          className="resize-none"
+                          maxLength={400}
                           {...field}
                           id="message"
                           placeholder="Olá eu sou @, gostaria de fazer um orçamento para N placas para o endereço X"

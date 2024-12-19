@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Sheet,
   SheetTrigger,
@@ -9,6 +10,7 @@ import {
   SheetDescription,
 } from "../ui";
 import { useState } from "react";
+import logo from "@/assets/images/logo-simplify.png";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -20,10 +22,18 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-gradient-to-r from-orange-400 via-orange-600  to-orange-800 text-white p-4">
+    <header className="bg-gradient-to-r from-orange-400 via-orange-600  to-orange-700 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl sm:text-3xl font-bold">
-          <Link href="/">Brasa Solar</Link>
+        <h1 className="text-xl sm:text-3xl md:text-lg font-bold">
+          <Link href="/" className="flex items-center justify-center gap-1">
+            <Image
+              width={48}
+              height={48}
+              src={logo}
+              alt="Brasa solar, venda e instalação de painéis solares"
+            />{" "}
+            Brasa Solar
+          </Link>
         </h1>
         <nav>
           <ul className="hidden sm:flex space-x-6">

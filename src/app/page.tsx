@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Zap } from "lucide-react";
+import { Check, FileCheck2, Sun, UserCheck, Zap } from "lucide-react";
 
 import {
   Button,
@@ -93,7 +93,7 @@ export default function Home() {
               De um passo em direção à economia e sustentabilidade.
             </p>
             <Link href="#nossos-servicos">
-              <Button className="text-xl mt-6 bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 ">
+              <Button className="text-xl mt-6 bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 rounded-sm">
                 Saiba Mais <Zap />
               </Button>
             </Link>
@@ -111,12 +111,18 @@ export default function Home() {
             <h3 className="text-3xl sm:text-2xl sm:text-left lg:text-5xl font-bold text-gray-900">
               Quem Somos
             </h3>
-            <p className="mt-4 text-lg text-gray-700 max-w-4xl mx-auto">
-              Somos uma empresa especializada em fornecer soluções de energia
-              solar, oferecendo a nossos clientes painéis solares de alta
-              qualidade, otimização de consumo e um futuro mais sustentável.
-              Nossos sistemas são projetados para fornecer energia limpa e
-              eficiente para sua casa ou negócio.
+            <p className="flex items-center mt-4 text-lg text-gray-700 max-w-4xl mx-auto lg:max-w-full lg:text-2xl lg:text-left w-full">
+              Especializados em fornecer soluções de{"   "}
+              <span className="font-semibold ml-2"> energia solar</span>{" "}
+              <Sun size={32} className="stroke-orange-600 animate-pulse" />
+            </p>
+            <p className="flex gap-2 items-center text-lg text-orange-600 max-w-4xl mx-auto lg:max-w-full lg:text-md lg:text-left w-full">
+              <UserCheck className="stroke-orange-500" size={24} /> O melhor
+              atendimento do Oeste Paulista.
+            </p>
+            <p className="flex gap-2 items-center text-lg text-orange-600 max-w-4xl mx-auto lg:max-w-full lg:text-md lg:text-left w-full">
+              <FileCheck2 className="stroke-orange-500" size={24} /> Seu
+              orçamento em até 15min.
             </p>
           </div>
           <div className="w-full flex justify-center items-center py-12 sm:px-12 sm:py-12">

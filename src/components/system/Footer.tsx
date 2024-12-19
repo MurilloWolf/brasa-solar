@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
+import logo from "@/assets/images/logo-white.png";
 export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-white py-8">
@@ -10,10 +10,10 @@ export default function Footer() {
           <div className="flex justify-between">
             <Link href="/">
               <Image
-                src="/logo.svg"
-                alt="Brasa Solar"
-                width={100}
-                height={100}
+                src={logo}
+                alt="Brasa Solar, empresa de venda e instalação de placas solares"
+                width={64}
+                height={64}
               />
             </Link>
             <nav className="text-left text-sm">
@@ -21,18 +21,25 @@ export default function Footer() {
                 <strong>Social</strong>
               </p>
               <div className="max-w-32 flex flex-col justify-evenly gap-2">
-                <p className="flex items-center">
-                  <Instagram className="mr-2" size={18} />
-                  Instagram
-                </p>
-                <p className="flex items-center">
+                <Link
+                  href="https://www.instagram.com/brasasolar_/"
+                  target="_blank"
+                >
+                  <p className="flex items-center">
+                    <Instagram className="mr-2" size={18} />
+                    Instagram
+                  </p>
+                </Link>
+                {/* <p className="flex items-center">
                   <Facebook className="mr-2" size={18} />
                   Facebook
-                </p>
-                <p className="flex items-center">
-                  <Phone className="mr-2" size={18} />
-                  WhatsApp
-                </p>
+                </p> */}
+                <Link href="https://wa.me/5518996556202" target="_blank">
+                  <p className="flex items-center">
+                    <Phone className="mr-2" size={18} />
+                    WhatsApp
+                  </p>
+                </Link>
               </div>
             </nav>
           </div>
@@ -42,9 +49,9 @@ export default function Footer() {
               <strong>Links</strong>
             </p>
             <div className="max-w-48 px-4 flex flex-col justify-evenly gap-2">
-              <Link href="#">Calculadora</Link>
-              <Link href="#">Fale conosco</Link>
-              <Link href="#">Termos de uso</Link>
+              <Link href="#calculadora">Calculadora</Link>
+              <Link href="#fale-conosco">Fale conosco</Link>
+              {/* <Link href="#">Termos de uso</Link> */}
             </div>
           </div>
         </div>

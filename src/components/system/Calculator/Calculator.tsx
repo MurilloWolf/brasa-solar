@@ -34,7 +34,7 @@ import Image from "next/image";
 import { InfoIcon } from "lucide-react";
 import ResultCard from "./components/ResultCard";
 import useLastCalc from "./context/useLastCalc";
-import mockupMen from "@/assets/images/mockupMen.png";
+import menMockup from "@/assets/images/mock-men-pointing.png";
 
 export default function Calculator() {
   const { saveLastCalc } = useLastCalc();
@@ -128,8 +128,8 @@ export default function Calculator() {
 
   return (
     <div>
-      <div className="lg:flex flex-row-reverse justify-evenly">
-        <Card className="lg:w-2/4">
+      <div className="md:flex flex-row-reverse justify-evenly">
+        <Card className="md:w-2/4 lg:w-2/4 xl:w-1/4">
           <CardHeader>
             <CardTitle>Calculadora de placas</CardTitle>
             <CardDescription>
@@ -202,6 +202,7 @@ export default function Calculator() {
                   </form>
                 </Form>
                 <ResultCard
+                  className="block xl:hidden"
                   panelsRequired={panelsRequiredConsumption}
                   ref={resultConsumptionRef}
                 />
@@ -280,6 +281,7 @@ export default function Calculator() {
                   </form>
                 </Form>
                 <ResultCard
+                  className="block xl:hidden"
                   panelsRequired={panelsRequiredBill}
                   ref={resultBillRef}
                 />
@@ -292,13 +294,28 @@ export default function Calculator() {
             Esse cálculo não substitui um orçamento especializado.{" "}
           </CardFooter>
         </Card>
-        <Image
-          className="hidden lg:block"
-          src={mockupMen}
-          alt=""
-          width={400}
-          height={400}
-        />
+        <div className="flex flex-row">
+          <Image
+            className="hidden md:block max-h-[600px]"
+            src={menMockup}
+            alt=""
+            width={500}
+            height={400}
+          />
+          {isUsingConsumption() ? (
+            <ResultCard
+              className="hidden xl:block"
+              panelsRequired={panelsRequiredConsumption}
+              ref={resultConsumptionRef}
+            />
+          ) : (
+            <ResultCard
+              className="hidden xl:block"
+              panelsRequired={panelsRequiredBill}
+              ref={resultConsumptionRef}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

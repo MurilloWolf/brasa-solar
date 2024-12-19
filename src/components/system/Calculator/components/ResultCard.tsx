@@ -11,17 +11,18 @@ import {
 type ResultCardProps = {
   panelsRequired: number;
   ref: React.RefObject<HTMLDivElement>;
+  className?: string;
 };
 
 export default function ResultCard(props: ResultCardProps) {
-  const { panelsRequired, ref } = props;
+  const { panelsRequired, ref, className } = props;
 
   if (panelsRequired === 0 || !panelsRequired) return null;
 
   return (
-    <>
+    <div className={`w-full transition-all ease-in duration-400 ` + className}>
       <Card
-        className="bg-gradient-to-r from-orange-500 to-yellow-400"
+        className="bg-gradient-to-r from-orange-500 to-yellow-400 max-h-72 "
         ref={ref}
       >
         <CardHeader>
@@ -42,10 +43,6 @@ export default function ResultCard(props: ResultCardProps) {
           </CardDescription>
         </CardContent>
       </Card>
-      {/* <p className="text-gray-400 text-xs font-extralight p-2 flex gap-2">
-        <InfoIcon className="text-gray-300" size={22} />
-        Esse cálculo não substitui um orçamento especializado.{" "}
-      </p> */}
-    </>
+    </div>
   );
 }
