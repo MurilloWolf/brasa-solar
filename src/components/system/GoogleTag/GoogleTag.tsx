@@ -18,13 +18,13 @@ export default function GoogleTag() {
       ></Script>
       <Script id="google-analytics">
         {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){
-              window.dataLayer.push(arguments);
-              }
-              gtag('js', new Date());
-              gtag('config', 'G-V0Q4N0W9PB');
-              `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){
+            window.dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-V0Q4N0W9PB');
+        `}
       </Script>
     </>
   );
