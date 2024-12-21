@@ -3,6 +3,9 @@ import Script from "next/script";
 import localFont from "next/font/local";
 import GoogleTag from "@/components/system/GoogleTag/GoogleTag";
 import "./globals.css";
+import GoogleTagManager, {
+  NoScriptTagManager,
+} from "@/components/system/GoogleTag/GoogleTagManager";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,11 +31,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <GoogleTag />
+        <GoogleTagManager />
+        {/* <GoogleTag /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <NoScriptTagManager />
         {children}
       </body>
     </html>
