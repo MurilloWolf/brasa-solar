@@ -79,12 +79,6 @@ export default function Calculator() {
   const isUsingConsumption = () => calcSelected === "consumption";
 
   const handleCalculatePanels = () => {
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        event: "used_calculator",
-        // calculator_type: calcSelected,
-      });
-    }
     const fieldToValidate = [
       isUsingConsumption() ? "consumptionKWh" : "billValue",
       "sunHoursPerDay",
