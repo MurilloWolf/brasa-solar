@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://brasasolar.com
+
+# Sitemaps
+Sitemap: https://brasasolar.com/sitemap.xml
