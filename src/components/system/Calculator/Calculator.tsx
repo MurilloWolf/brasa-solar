@@ -82,7 +82,7 @@ export default function Calculator() {
     if (window.dataLayer) {
       window.dataLayer.push({
         event: "used_calculator",
-        calculator_type: calcSelected,
+        // calculator_type: calcSelected,
       });
     }
     const fieldToValidate = [
