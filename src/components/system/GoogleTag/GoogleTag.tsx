@@ -11,23 +11,21 @@ typeof window;
 
 export default function GoogleTag() {
   return (
-    <Head>
+    <>
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-V0Q4N0W9PB"
       ></Script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+      <Script id="google-analytics">
+        {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){
               window.dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'G-V0Q4N0W9PB');
-          `,
-        }}
-      ></script>
-    </Head>
+              }
+              gtag('js', new Date());
+              gtag('config', 'G-V0Q4N0W9PB');
+              `}
+      </Script>
+    </>
   );
 }
