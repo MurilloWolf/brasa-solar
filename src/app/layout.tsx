@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <GoogleTagManager />
-        {/* <GoogleTag /> */}
+        <GoogleTag />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
