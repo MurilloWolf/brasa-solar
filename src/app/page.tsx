@@ -2,13 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Check, FileCheck2, Sun, UserCheck, Zap } from "lucide-react";
+import { FileCheck2, Sun, UserCheck, Zap } from "lucide-react";
 
 import {
   Button,
-  Card,
-  CardContent,
-  CardHeader,
   Carousel,
   CarouselContent,
   CarouselItem,
