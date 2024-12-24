@@ -193,6 +193,7 @@ export default function Calculator() {
                       )}
                     />
                     <Button
+                      id="btn-caculate"
                       className="w-full bg-orange-500 hover:bg-orange-400 text-gray-50 text-md"
                       type="button"
                       onClick={handleCalculatePanels}

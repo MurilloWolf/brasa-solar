@@ -16,9 +16,9 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#nossos-servicos", text: "Serviços" },
-    { href: "#calculadora", text: "Calculadora" },
-    { href: "#fale-conosco", text: "Fale conosco" },
+    { href: "#nossos-servicos", text: "Serviços", id: "link-services" },
+    { href: "#calculadora", text: "Calculadora", id: "link-calculator" },
+    { href: "#fale-conosco", text: "Fale conosco", id: "link-email-contact" },
   ];
 
   return (
@@ -39,7 +39,11 @@ export default function Header() {
           <ul className="hidden sm:flex space-x-6">
             {links.map((link) => (
               <li key={link.text}>
-                <Link href={link.href} className="hover:font-semibold">
+                <Link
+                  id={link.id}
+                  href={link.href}
+                  className="hover:font-semibold"
+                >
                   {link.text}
                 </Link>
               </li>
@@ -55,7 +59,7 @@ export default function Header() {
                 <SheetDescription className="flex flex-col min-h-52 h-full gap-8 justify-center">
                   {links.map((link) => (
                     <Link
-                      id={link.text}
+                      id={link.id}
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}

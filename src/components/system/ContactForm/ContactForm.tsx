@@ -135,6 +135,7 @@ export default function ContactForm() {
                   )}
                 />
                 <Button
+                  id="btn-email-contact"
                   type="submit"
                   disabled={isPending}
                   onClick={handleSubmit}

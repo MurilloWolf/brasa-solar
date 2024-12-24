@@ -90,7 +90,10 @@ export default function Home() {
               De um passo em direção à economia e sustentabilidade.
             </p>
             <Link href="#nossos-servicos">
-              <Button className="text-xl mt-6 bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 rounded-sm">
+              <Button
+                id="btn-see-more"
+                className="text-xl mt-6 bg-orange-500 hover:bg-orange-400 text-white py-3 px-6 rounded-sm"
+              >
                 Saiba Mais <Zap />
               </Button>
             </Link>
