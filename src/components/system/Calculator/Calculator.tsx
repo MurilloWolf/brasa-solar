@@ -193,7 +193,7 @@ export default function Calculator() {
                       )}
                     />
                     <Button
-                      id="btn-caculate"
+                      id="btn-calculate-by-consumption"
                       className="w-full bg-orange-500 hover:bg-orange-400 text-gray-50 text-md"
                       type="button"
                       onClick={handleCalculatePanels}
@@ -273,6 +273,7 @@ export default function Calculator() {
                       )}
                     />
                     <Button
+                      id="btn-calculate-by-bill"
                       className="w-full bg-orange-500 hover:bg-orange-400 text-gray-50 text-md"
                       type="button"
                       onClick={handleCalculatePanels}
