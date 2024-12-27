@@ -8,14 +8,27 @@ export default function Footer() {
       <div className="container mx-auto text-center">
         <div className="p-4 px-10 flex flex-col justify-evenly gap-4">
           <div className="flex justify-between">
-            <Link href="/">
-              <Image
-                src={logo}
-                alt="Brasa Solar, empresa de venda e instalação de placas solares"
-                width={64}
-                height={64}
-              />
-            </Link>
+            <div className="flex">
+              <Link href="/">
+                <Image
+                  src={logo}
+                  alt="Brasa Solar, empresa de venda e instalação de placas solares"
+                  width={72}
+                  height={72}
+                />
+              </Link>
+              <div className="p-2 text-left text-sm">
+                <p>
+                  <strong>Endereço:</strong> Rua 1, 123 - Bairro, Cidade - UF
+                </p>
+                <p>
+                  <strong>CNPJ:</strong> 53.456.634/0001-10
+                </p>
+                <p>
+                  <strong>Contato: </strong> 18 99628-2100
+                </p>
+              </div>
+            </div>
             <nav className="text-left text-sm">
               <p className="text-lg">
                 <strong>Social</strong>
@@ -50,6 +63,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
         <p className="mt-4">
           <small className="text-orange-400">
             &copy; 2024 Brasa Solar. Todos os direitos reservados.

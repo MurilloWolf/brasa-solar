@@ -54,7 +54,7 @@ export default function ContactButton() {
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 w-full bg-black/90 flex justify-center items-center p-4 py-8 pb-12">
+    <div className="md:hidden fixed bottom-0 left-0 w-full bg-black/80 flex justify-center items-center p-4 py-8 pb-12">
       <Button
         id="btn-contact"
         className="bg-orange-500 hover:bg-orange-400 w-full text-lg "

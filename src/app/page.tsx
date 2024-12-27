@@ -111,17 +111,23 @@ export default function Home() {
             <h3 className="text-3xl sm:text-2xl sm:text-left lg:text-5xl font-bold text-gray-900">
               Quem Somos
             </h3>
-            <p className="flex items-center mt-4 text-lg text-gray-700 max-w-4xl mx-auto lg:max-w-full lg:text-2xl lg:text-left w-full">
+            <p className="flex flex-col sm:flex-row items-center mt-4 text-lg text-gray-700 max-w-4xl mx-auto lg:max-w-full lg:text-2xl lg:text-left w-full">
               Especializados em fornecer soluções de{"   "}
-              <span className="font-semibold ml-2"> energia solar</span>{" "}
-              <Sun size={32} className="stroke-orange-600 animate-pulse" />
+              <span className="font-semibold ml-2 flex">
+                {" "}
+                energia solar{" "}
+                <Sun
+                  size={32}
+                  className="stroke-orange-600 animate-pulse ml-2"
+                />
+              </span>{" "}
             </p>
-            <p className="flex gap-2 items-center text-lg text-orange-600 max-w-4xl mx-auto lg:max-w-full lg:text-md lg:text-left w-full">
-              <UserCheck className="stroke-orange-500" size={24} /> O melhor
+            <p className="mt-4 flex justify-center sm:justify-start gap-2 items-center text-sm sm:text-lg text-orange-600 max-w-4xl mx-auto lg:max-w-full lg:text-md lg:text-left w-full">
+              <UserCheck className=" stroke-orange-500 h-5 sm:h-6" /> O melhor
               atendimento do Oeste Paulista.
             </p>
-            <p className="flex gap-2 items-center text-lg text-orange-600 max-w-4xl mx-auto lg:max-w-full lg:text-md lg:text-left w-full">
-              <FileCheck2 className="stroke-orange-500" size={24} /> Seu
+            <p className="flex justify-center sm:justify-start gap-2 items-center text-sm  sm:text-lg text-orange-600 max-w-4xl mx-auto lg:max-w-full lg:text-md lg:text-left w-full">
+              <FileCheck2 className="stroke-orange-500 h-5 sm:h-6" /> Seu
               orçamento em até 15min.
             </p>
           </div>

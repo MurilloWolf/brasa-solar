@@ -1,3 +1,10 @@
+import Image from "next/image";
+import { useTransition, useState } from "react";
+import { useForm } from "react-hook-form";
+import { CheckCheckIcon, InfoIcon, Loader, SendHorizontal } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { sendMail } from "@/service/send-mail";
+import mockupWoman from "@/assets/images/mockupWoman.png";
 import {
   Button,
   Form,
@@ -8,18 +15,22 @@ import {
   FormLabel,
   FormMessage,
   Textarea,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
 } from "@/components/ui";
 import contactFormSchema, { contactFormInitialValues } from "./schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { Loader, SendHorizontal } from "lucide-react";
-import { useEffect, useState, useTransition } from "react";
-import { sendMail } from "@/service/send-mail";
-import Image from "next/image";
-import mockupWoman from "@/assets/images/mockupWoman.png";
 
 export default function ContactForm() {
   const [isPending, startTransition] = useTransition();
+  const [openDialog, setOpenDialog] = useState(false);
+  const [emailSended, setEmailSended] = useState(false);
+  const [error, setError] = useState(false);
 
   const zform = useForm({
     resolver: zodResolver(contactFormSchema),
@@ -28,8 +39,18 @@ export default function ContactForm() {
 
   const handleSubmit = zform.handleSubmit(async () => {
     startTransition(async () => {
+      setError(false);
       // const response = await sendMail(zform.getValues());
-      console.log("email sended");
+      const response = { status: 500 };
+      if (response.status === 200) {
+        setOpenDialog(true);
+        setEmailSended(true);
+        setError(false);
+        zform.reset();
+        return;
+      }
+
+      setError(true);
     });
   });
 
@@ -134,10 +155,16 @@ export default function ContactForm() {
                     </FormItem>
                   )}
                 />
+                {error && (
+                  <p className="flex items-center text-md text-red-700 border-l-2 border-red-400  bg-red-100 rounded-r-sm p-2">
+                    <InfoIcon className="mr-2 h-4 stroke-red-700" /> Erro ao
+                    enviar mensagem, entre em contato pelo nosso WhatsApp
+                  </p>
+                )}
                 <Button
                   id="btn-email-contact"
                   type="submit"
-                  disabled={isPending}
+                  disabled={isPending || emailSended}
                   onClick={handleSubmit}
                   className="rounded-sm text-lg bg-green-500 hover:bg-green-400 text-white py-3 px-6"
                 >
@@ -162,6 +189,22 @@ export default function ContactForm() {
           />
         </div>
       </div>
+      <AlertDialog open={openDialog} onOpenChange={setOpenDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center">
+              <CheckCheckIcon className="mr-2 stroke-green-500" /> Mensagem
+              Enviada
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              Assim que possível nossa equipe entrará em contato.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Fechar</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 }
