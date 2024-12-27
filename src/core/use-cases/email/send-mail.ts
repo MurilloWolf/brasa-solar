@@ -1,5 +1,8 @@
-import { UseCases } from ".";
-import { IEmailRepository, SendEmailDTO } from "../repository/email.repository";
+import { UseCases } from "..";
+import {
+  IEmailRepository,
+  SendEmailDTO,
+} from "../../repository/email.repository";
 
 export class SendEmail implements UseCases {
   constructor(private repository: IEmailRepository) {
