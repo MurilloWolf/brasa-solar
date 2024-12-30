@@ -40,8 +40,7 @@ export default function ContactForm() {
   const handleSubmit = zform.handleSubmit(async () => {
     startTransition(async () => {
       setError(false);
-      // const response = await sendMail(zform.getValues());
-      const response = { status: 500 };
+      const response = await sendMail(zform.getValues());
       if (response.status === 200) {
         setOpenDialog(true);
         setEmailSended(true);
