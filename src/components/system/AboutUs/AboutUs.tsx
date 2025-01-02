@@ -15,7 +15,7 @@ export default function AboutUs() {
     {
       title: "Instalação de Painéis Solares",
       description:
-        "Instalamos sistemas solares personalizados para atender às suas necessidades de energia.",
+        "Realizamos a instalação de placas solares personalizados para atender às suas necessidades de energia.",
     },
     {
       title: "Manutenção e Suporte",
