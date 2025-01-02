@@ -33,6 +33,7 @@ export default function RootLayout({
       <head>
         <GoogleTagManager />
         <GoogleTag />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
